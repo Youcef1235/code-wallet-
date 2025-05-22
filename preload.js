@@ -21,5 +21,3 @@ contextBridge.exposeInMainWorld("api", {
 
 console.log("API exposed to renderer")
 
-
-

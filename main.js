@@ -152,6 +152,3 @@ ipcMain.handle("copy-to-clipboard", async (event, text) => {
   }
 })
 
-
-
-
