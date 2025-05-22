@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Wallet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app"></div>
+  
+  <!-- Templates for different pages -->
+  <template id="fragments-template">
+    <div class="page fragments-page">
+      <header>
+        <div class="logo">Code Wallet</div>
+        <div class="actions">
+          <button id="new-fragment-btn" class="btn primary">New</button>
+          <button id="info-btn" class="btn">Info</button>
+        </div>
+      </header>
+      <nav>
+        <button id="fragments-nav" class="nav-btn active">Fragments</button>
+        <button id="tags-nav" class="nav-btn">Tags</button>
+      </nav>
+      <main id="fragments-container" class="fragments-container">
+        <!-- Fragments will be inserted here -->
+      </main>
+    </div>
+  </template>
+
+  <template id="fragment-form-template">
+    <div class="page fragment-form-page">
+      <header>
+        <div class="logo">Code Wallet</div>
+        <div class="actions">
+          <button id="info-btn" class="btn">Info</button>
+        </div>
+      </header>
+      <main class="form-container">
+        <form id="fragment-form">
+          <input type="hidden" id="fragment-id">
+          <div class="form-group">
+            <label for="fragment-title">Title</label>
+            <input type="text" id="fragment-title" required>
+          </div>
+          <div class="form-group">
+            <label for="fragment-code">Code</label>
+            <textarea id="fragment-code" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="fragment-tags">Tags (comma separated)</label>
+            <input type="text" id="fragment-tags">
+          </div>
+          <div class="form-actions">
+            <button type="button" id="delete-fragment-btn" class="btn danger">Delete</button>
+            <button type="submit" class="btn primary">Save</button>
+          </div>
+        </form>
+      </main>
+    </div>
+  </template>
+
+  <template id="tags-template">
+    <div class="page tags-page">
+      <header>
+        <div class="logo">Code Wallet</div>
+        <div class="actions">
+          <button id="new-tag-btn" class="btn primary">New</button>
+          <button id="info-btn" class="btn">Info</button>
+        </div>
+      </header>
+      <nav>
+        <button id="fragments-nav" class="nav-btn">Fragments</button>
+        <button id="tags-nav" class="nav-btn active">Tags</button>
+      </nav>
+      <main id="tags-container" class="tags-container">
+        <!-- Tags will be inserted here -->
+      </main>
+    </div>
+  </template>
+
+  <template id="info-template">
+    <div class="page info-page">
+      <header>
+        <div class="logo">Code Wallet</div>
+      </header>
+      <main class="info-container">
+        <h1>About Code Wallet</h1>
+        <section>
+          <h2>Features</h2>
+          <ul>
+            <li>Save and organize code fragments</li>
+            <li>Tag your code for easy categorization</li>
+            <li>Copy code to clipboard with one click</li>
+            <li>Dark mode for comfortable coding at night</li>
+            <li>Syntax highlighting for better code readability</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Developers</h2>
+          <p>Code Wallet is developed by EverydayDev, a startup focused on creating tools for developers.</p>
+        </section>
+        <section>
+          <h2>Legal Information</h2>
+          <p>Code Wallet collects anonymous usage data to improve the application. No personal information is collected.</p>
+        </section>
+      </main>
+    </div>
+  </template>
+
+  <template id="tag-modal-template">
+    <div class="modal" id="tag-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Edit Tag</h2>
+        <form id="tag-form">
+          <input type="hidden" id="tag-id">
+          <div class="form-group">
+            <label for="tag-name">Name</label>
+            <input type="text" id="tag-name" required>
+          </div>
+          <div class="form-actions">
+            <button type="button" id="delete-tag-btn" class="btn danger">Delete</button>
+            <button type="submit" class="btn primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </template>
+
+  <template id="code-modal-template">
+    <div class="modal" id="code-modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="code-modal-title"></h2>
+        <pre><code id="code-modal-content"></code></pre>
+        <button id="copy-code-btn" class="btn primary">Copy</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
